@@ -34,6 +34,7 @@
             type="submit"
             id="loginBtn"
             style="background-color:#409df7; border-color:#409df7"
+            ref="loginBtn"
           >
             Log In
           </button>
@@ -56,7 +57,25 @@
 </template>
 
 <script>
-export default {};
+import { mapGetters, mapActions } from "vuex";
+export default {
+  name: "Login",
+  data() {
+    return {
+      email: "",
+      password: "",
+      showDismissibleAlert: false
+    };
+  },
+  methods: {
+    ...mapActions(["auth"]),
+    login() {
+      const btn = this.$refs.loginBtn;
+      console.log(this.email, this.password, btn);
+    }
+  },
+  computed: mapGetters(["message"])
+};
 </script>
 
 <style scoped>

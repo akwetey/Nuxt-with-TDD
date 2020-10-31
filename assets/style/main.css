@@ -1,0 +1,95 @@
+body {
+  background: #f5f6f8;
+  color: #6c757d;
+}
+
+.form-control {
+  color: #6c757d;
+  border: 1px solid #dee2e6;
+}
+
+.is-loading:after,
+.loader {
+  display: block;
+  width: 1.5rem;
+  height: 1.5rem;
+  animation: 1s c linear infinite;
+  border: 3px solid #12263f;
+  border-bottom-color: transparent;
+  border-radius: 50%;
+  background: transparent;
+}
+
+.is-loading-sm:after,
+.loader-sm {
+  width: 1rem;
+  height: 1rem;
+  border-width: 2px;
+}
+
+.is-loading {
+  position: relative;
+  color: transparent !important;
+}
+
+.is-loading > * {
+  opacity: 0 !important;
+}
+
+.is-loading:after {
+  position: absolute;
+  top: calc(50% - 1.5rem / 2);
+  left: calc(50% - 1.5rem / 2);
+  content: "";
+}
+
+.is-loading-sm:after {
+  top: calc(50% - 1rem / 2);
+  left: calc(50% - 1rem / 2);
+}
+
+.is-loading-primary:after,
+.loader-primary {
+  border-color: #2c7be5;
+  border-bottom-color: transparent;
+}
+
+.btn-primary.is-loading:after {
+  border-color: #fff;
+  border-bottom-color: transparent;
+}
+
+.is-loading-success:after,
+.loader-success {
+  border-color: #00d97e;
+  border-bottom-color: transparent;
+}
+
+.btn-success.is-loading:after {
+  border-color: #fff;
+  border-bottom-color: transparent;
+}
+
+.is-loading-danger:after,
+.loader-danger {
+  border-color: #e63757;
+  border-bottom-color: transparent;
+}
+
+.btn-danger.is-loading:after {
+  border-color: #fff;
+  border-bottom-color: transparent;
+}
+
+@keyframes c {
+  0% {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(1turn);
+  }
+}
+
+.nav-link {
+  color: #607d8b;
+}

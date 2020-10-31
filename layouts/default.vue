@@ -4,6 +4,4 @@
   </div>
 </template>
 
-<style>
-@import "~/assets/main.scss";
-</style>
+<style></style>
