@@ -161,7 +161,7 @@ export default {
         chartOptions: {
           labels: labels,
           legend: {
-            position: "right"
+            position: "left"
           }
         }
       };
@@ -400,3 +400,9 @@ export default {
   }
 };
 </script>
+
+<style scoped>
+.size {
+  font-size: 0.75rem;
+}
+</style>

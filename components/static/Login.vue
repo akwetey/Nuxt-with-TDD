@@ -80,7 +80,7 @@ export default {
       const btn = this.$refs.loginBtn;
       console.log(this.email, this.password, btn);
       this.show = true;
-      this.$router.push("/dashboard");
+      this.$router.push("/organisation/dashboard");
     }
   },
   computed: mapGetters(["message"])

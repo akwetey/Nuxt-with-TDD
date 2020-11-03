@@ -95,7 +95,7 @@ body {
 }
 
 .b-overlay div:nth-child(2) {
-  top: 20% !important;
+  top: 35% !important;
   left: 50% !important;
   transform: translateX(-50%) translateY(-50%) !important;
 }

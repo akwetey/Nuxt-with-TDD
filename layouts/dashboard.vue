@@ -19,7 +19,7 @@
             <div class="page-content">
               <div class="card m-b-30 style-card" style="overflow-x: auto;">
                 <div class="card-body">
-                  <router-view />
+                  <Nuxt />
                 </div>
               </div>
             </div>
