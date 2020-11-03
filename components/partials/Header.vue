@@ -23,7 +23,6 @@
           aria-haspopup="false"
           aria-expanded="false"
         >
-          <font-awesome-icon :icon="['fas', 'user']" class="text-light" />
           <span class="pro-user-name ml-1 text-light">
             <i class="mdi mdi-chevron-down"></i>
           </span>
@@ -33,12 +32,12 @@
           ref="showDiv"
         >
           <!-- item-->
-          <router-link
+          <!-- <nuxt-link
             :to="{ name: 'profile' }"
             class="dropdown-item notify-item"
           >
             <span class="ml-2 small">My Account</span>
-          </router-link>
+          </nuxt-link> -->
           <div class="dropdown-divider"></div>
           <a href="javascript:void(0);" class="dropdown-item notify-item">
             <span class="ml-2 small">Logout</span>
