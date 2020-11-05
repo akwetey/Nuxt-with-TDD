@@ -133,20 +133,10 @@ export default {
     };
   },
   layout: "dashboard",
+  middleware: "auth",
   async fetch() {
     try {
-      const token =
-        "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6MSwiaXNzIjoiaHR0cDpcL1wvZnVuZGl0cmFjay5jb20iLCJleHAiOjE2MDQ0MzExMjUsInRfbWFzayI6ImYwOGIzMDE4ZjEwOWIyZjUyOGQwMDAyNTEwZGRhNzAzIiwib3JnYW5pc2F0aW9uIjoiUm9tIn0.Z7yiqfoDq8pl8QqNv-qfLOOuhXGQA_ZW57mhxuVeCY4";
-      const headers = {
-        "Content-Type": "application/json",
-        Authorization: `Bearer ${token}`
-      };
-      let response = await this.$axios.get(
-        "http://funditrack.com/api/organisation/report",
-        {
-          headers
-        }
-      );
+      let response = await this.$axios.get("/report");
       this.show = false;
       const res = response.data;
       const data = Object.entries(res.active_vrs_suspended_instances);

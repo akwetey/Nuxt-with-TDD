@@ -17,7 +17,7 @@ export default {
   css: ["~/assets/style/dashboard.css", "~/assets/style/main.css"],
 
   // Plugins to run before rendering page (https://go.nuxtjs.dev/config-plugins)
-  plugins: [{ src: "~/plugins/chart", ssr: false }],
+  plugins: [{ src: "~/plugins/chart", ssr: false }, { src: "~/plugins/axios" }],
 
   // Auto import components (https://go.nuxtjs.dev/config-components)
   components: true,
@@ -27,11 +27,9 @@ export default {
 
   // Modules (https://go.nuxtjs.dev/config-modules)
   modules: [
-    // https://go.nuxtjs.dev/bootstrap
     "bootstrap-vue/nuxt",
-    // https://go.nuxtjs.dev/axios
     "@nuxtjs/axios",
-
+    "@nuxtjs/auth",
     [
       "nuxt-fontawesome",
       {
@@ -49,6 +47,26 @@ export default {
   // Axios module configuration (https://go.nuxtjs.dev/config-axios)
   axios: {},
 
+  auth: {
+    redirect: {
+      login: "/organisation",
+      logout: "/organisation",
+      home: "/organisation/dashboard"
+    },
+    strategies: {
+      local: {
+        endpoints: {
+          login: {
+            url: "/auth/login",
+            method: "post",
+            propertyName: "data.token"
+          },
+          logout: { url: "/auth/logout/", method: "post" },
+          user: false
+        }
+      }
+    }
+  },
   // Build Configuration (https://go.nuxtjs.dev/config-build)
   build: {}
 };

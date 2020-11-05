@@ -9,6 +9,9 @@
       style="max-width: 420px;"
     >
       <div class="card px-4 py-4 shadow-sm">
+        <b-alert v-model="showDismissibleAlert" variant="danger" dismissible>{{
+          error
+        }}</b-alert>
         <div class="text-center mb-2">
           <h4 class="text-uppercase mt-0">Sign In</h4>
         </div>
@@ -63,7 +66,7 @@
 </template>
 
 <script>
-import { mapGetters, mapActions } from "vuex";
+import { mapGetters } from "vuex";
 export default {
   name: "Login",
   data() {
@@ -71,19 +74,27 @@ export default {
       show: false,
       email: "",
       password: "",
-      showDismissibleAlert: false
+      showDismissibleAlert: false,
+      error: ""
     };
   },
   methods: {
-    ...mapActions(["auth"]),
-    login() {
-      const btn = this.$refs.loginBtn;
-      console.log(this.email, this.password, btn);
-      this.show = true;
-      this.$router.push("/organisation/dashboard");
+    async login() {
+      try {
+        let data = {
+          email: this.email,
+          password: this.password
+        };
+        this.show = true;
+        const res = await this.$auth.loginWith("local", { data });
+        this.$auth.setUser(res.data.data.user);
+      } catch (e) {
+        this.error = e.response.data.message;
+        this.show = false;
+        this.showDismissibleAlert = true;
+      }
     }
-  },
-  computed: mapGetters(["message"])
+  }
 };
 </script>
 

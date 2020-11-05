@@ -9,6 +9,7 @@ import Login from "../../components/static/Login";
 export default {
   components: {
     Login
-  }
+  },
+  middleware: "guest"
 };
 </script>
