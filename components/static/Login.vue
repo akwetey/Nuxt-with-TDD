@@ -87,7 +87,7 @@ export default {
         };
         this.show = true;
         const res = await this.$auth.loginWith("local", { data });
-        this.$auth.setUser(res.data.data.user);
+        this.$auth.setUser(res.data.data);
       } catch (e) {
         this.error = e.response.data.message;
         this.show = false;

@@ -3,7 +3,6 @@
     <Login />
   </div>
 </template>
-
 <script>
 import Login from "../../components/static/Login";
 export default {

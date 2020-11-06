@@ -1,4 +1,4 @@
-const axios = ({ $axios, store, redirect }) => {
+const axios = ({ $axios, store }) => {
   //set base url
   if (process.env.NODE_ENV !== "production") {
     $axios.defaults.baseURL = "http://funditrack.com/api/organisation";
@@ -12,8 +12,7 @@ const axios = ({ $axios, store, redirect }) => {
     },
     error => {
       if (error.response && error.response.status === 401) {
-        // store.dispatch("responseLogout");
-        // router.push({ name: "home" }).catch(() => {});
+        store.$auth.logout();
       }
       return Promise.reject(error);
     }

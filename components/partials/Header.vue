@@ -23,8 +23,9 @@
           aria-haspopup="false"
           aria-expanded="false"
         >
+          <fa :icon="['fas', 'user']" class="text-light" />
           <span class="pro-user-name ml-1 text-light">
-            <i class="mdi mdi-chevron-down"></i>
+            {{ $auth.user.user }} <i class="mdi mdi-chevron-down"></i>
           </span>
         </a>
         <div

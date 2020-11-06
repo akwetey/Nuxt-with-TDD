@@ -380,6 +380,7 @@ export default {
           }
         };
       }
+      console.log(this.$auth.loggedIn);
     } catch (error) {
       console.log(error);
       this.show = false;

@@ -1,7 +1,7 @@
 export default {
   // Target (https://go.nuxtjs.dev/config-target)
   target: "static",
-
+  mode: "spa",
   // Global page headers (https://go.nuxtjs.dev/config-head)
   head: {
     title: "organisation",
@@ -17,7 +17,11 @@ export default {
   css: ["~/assets/style/dashboard.css", "~/assets/style/main.css"],
 
   // Plugins to run before rendering page (https://go.nuxtjs.dev/config-plugins)
-  plugins: [{ src: "~/plugins/chart", ssr: false }, { src: "~/plugins/axios" }],
+  plugins: [
+    { src: "~/plugins/chart", ssr: false },
+    { src: "~/plugins/axios" },
+    { src: "~/plugins/persiststate.js" }
+  ],
 
   // Auto import components (https://go.nuxtjs.dev/config-components)
   components: true,
